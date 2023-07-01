@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" type="text/css" href="navigation.css">
+</head>
+
+<body>
+    <header>
+        <nav id="nav">
+            <div class="navTop">
+
+                <div class="navItem">
+                    <img src="C:\xampp\htdocs\expense tracker\logo.png" alt="">
+                </div>
+                <ul>
+                    <li><a href="#" onclick="navigateTo('RegisterUser')">Register </a></li>
+                    <li><a href="#" onclick="navigateTo('LoginUser')">Login</a></li>
+                    <li><a href="#" onclick="navigateTo('expenses')">Expense Tracker </a></li>
+                    <li><a href="#" onclick="navigateTo('budget')">Budget Management </a></li>
+                    <li><a href="#" onclick="navigateTo('insights')">Financial Insights </a></li>
+                    <li><a href="#" onclick="navigateTo('reminders')">Notification & Reminders </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="RegisterUser" class="section">
+
+        <head>
+            <title>Expense Tracker </title>
+            <link rel="stylesheet" type="text/css" href="registration.css">
+        </head>
+
+        <body>
+            <h1>User Registration</h1>
+            <form id="registrationForm" onsubmit="registerUser(event)">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="username" required><br>
+                <label for="loginpassword">Password:</label>
+                <input type="password" id="password" required><br>
+                <input type="submit" value="Register">
+            </form>
+            <script src="registration.js"></script>
+        </body>
+    </div>
+
+
+    <div id="LoginUser" class="section">
+
+        <head>
+            <title>Expense Tracker </title>
+            <link rel="stylesheet" type="text/css" href="registration.css">
+        </head>
+
+        <body>
+            <h1>User Login</h1>
+            <form id="loginForm" onsubmit="authenticateUser(event)">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" required><br>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required><br>
+                <input type="submit" value="Login">
+            </form>
+            <script src="registration.js"></script>
+        </body>
+    </div>
+
+
+
+    <div id="expenses" class="section">
+
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+            <link rel="stylesheet" href="expense.css" />
+            <title>Expense Tracker</title>
+        </head>
+
+        <body>
+            <h2>Expense Tracker</h2>
+
+            <div class="container">
+                <h4>Your Balance</h4>
+                <h1 id="balance">Rs 0.00</h1>
+
+                <div class="inc-exp-container">
+                    <div>
+                        <h4>Income</h4>
+                        <p id="money-plus" class="money plus">Rs +0.00</p>
+                    </div>
+                    <div>
+                        <h4>Expense</h4>
+                        <p id="money-minus" class="money minus">Rs -0.00</p>
+                    </div>
+                </div>
+
+                <h3>History</h3>
+                <ul id="list" class="list">
+                    <li class="minus">
+                        Cash <button class="delete-btn">x</button>
+                    </li>
+                </ul>
+
+                <h3>Add new transaction</h3>
+                <form id="form">
+                    <div class="form-control">
+                        <label for="text">Text</label>
+                        <input type="text" id="text" placeholder="Enter text..." />
+                    </div>
+                    <div class="form-control">
+                        <label for="amount">Amount <br />
+                            (negative - expense, positive - income)</label>
+                        <input type="number" id="amount" placeholder="Enter amount..." />
+                    </div>
+                    <button class="btn">Add transaction</button>
+                </form>
+            </div>
+
+            <script src="expense.js"></script>
+        </body>
+
+    </div>
+    <div id="budget" class="section">
+
+
+        <head>
+            <title>Budget Management</title>
+            <link rel="stylesheet" type="text/css" href="budget.css">
+        </head>
+
+        <body>
+            <div class="container">
+                <h1>Budget Management</h1>
+
+                <div class="card">
+                    <h2>Add Expense</h2>
+                    <form id="expenseForm">
+                        <label for="expenseName">Expense Name:</label>
+                        <input type="text" id="expenseName" required>
+                        <label for="expenseAmount">Expense Amount:</label>
+                        <input type="number" id="expenseAmount" required>
+                        <button type="submit">Add Expense</button>
+                    </form>
+                </div>
+
+                <div class="card">
+
+                    <ul id="expenseList"></ul>
+                </div>
+
+
+            </div>
+
+            <script src="budget.js"></script>
+        </body>
+
+
+    </div>
+
+    <div id="insights" class="section">
+
+        <head>
+            <title>Financial Insights</title>
+            <style>
+                /* CSS styling for the financial insights */
+                body {
+                    font-family: Arial, sans-serif;
+                }
+
+                .container {
+                    max-width: 900px;
+                    margin: 0 auto;
+                    padding: 35px;
+                }
+
+                h1 {
+                    text-align: center;
+                    color: #2aa0db;
+                }
+
+                table {
+                    width: 120%;
+                    border-collapse: collapse;
+                    margin-top: 100px;
+                }
+
+                th,
+                td {
+                    padding: 8px;
+                    text-align: left;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                th {
+                    background-color: #17bf95;
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="container">
+                <h1>Financial Insights</h1>
+
+                <div id="chart">
+
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Revenue</th>
+                            <th>Expenses</th>
+                            <th>Profit</th>
+                        </tr>
+                        <tr>
+                            <td>2023-06-01</td>
+                            <td>10000</td>
+                            <td>6000</td>
+                            <td>4000</td>
+                        </tr>
+                        <tr>
+                            <td>2023-05-01</td>
+                            <td>12000</td>
+                            <td>8000</td>
+                            <td>4000</td>
+                        </tr>
+                        <tr>
+                            <td>2023-04-01</td>
+                            <td>8000</td>
+                            <td>5000</td>
+                            <td>3000</td>
+                        </tr>
+                        <tr>
+                            <td>2023-03-01</td>
+                            <td>70000</td>
+                            <td>56789</td>
+                            <td>45632</td>
+                        </tr>
+                        <tr>
+                            <td>2023-02-01</td>
+                            <td>34000</td>
+                            <td>23453</td>
+                            <td>6432</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </body>
+    </div>
+
+
+    <div id="reminders" class="section">
+
+        <head>
+            <title>Expense Tracker</title>
+            <link rel="stylesheet" type="text/css" href="notification.css">
+        </head>
+
+        <body>
+            <div id="notification-container"></div>
+
+            <div id="reminder-container">
+                <h2>Notifications & Reminders</h2>
+                <ul id="reminder-list">
+
+                </ul>
+            </div>
+
+            <script src="notification.js"></script>
+
+
+
+            <script>
+                // Timer function for notifications
+                function showNotification(message) {
+                    var notificationContainer = document.getElementById("notification-container");
+                    var notification = document.createElement("div");
+                    notification.className = "notification";
+                    notification.innerText = message;
+                    notificationContainer.appendChild(notification);
+
+                    setTimeout(function () {
+                        notificationContainer.removeChild(notification);
+                    }, 3000);
+                }
+
+                // Timer function for reminders
+                function addReminder(message, time) {
+                    var reminderList = document.getElementById("reminder-list");
+                    var reminderItem = document.createElement("li");
+                    reminderItem.innerText = message + " - " + time;
+                    reminderList.appendChild(reminderItem);
+
+                    var currentTime = new Date().getTime();
+                    var reminderTime = new Date(time).getTime();
+                    var timeDifference = reminderTime - currentTime;
+
+                    setTimeout(function () {
+                        showNotification("Reminder: " + message);
+                        reminderList.removeChild(reminderItem);
+                    }, timeDifference);
+                }
+
+                // Example usage of timer functions
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Show a notification after 5 seconds
+                    setTimeout(function () {
+                        showNotification("Welcome to Expense Tracker!");
+                    }, 5000);
+
+                    // Add reminders with different times
+
+                    addReminder("Meeting with client", "2023-07-01 19:17:00");
+                    addReminder("Pay utility bills", "2023-07-02 10:00:00");
+                    addReminder("Submit monthly report", "2023-07-05 09:00:00");
+                });
+            </script>
+        </body>
+    </div>
+    <script src="navigation.js"></script>
+
+</body>
+
+</html>
